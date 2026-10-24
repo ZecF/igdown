@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Downloader — Unduh Reels, Foto, Video & Carousel HD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+        <span class="brand-name">Insta<span>Downloader</span></span>
+      </div>
+
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span>Engine Online</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="badge-pill">
+        <span class="sparkle">📸</span> Reels · Foto · Video · Carousel Multi-Slide
+      </div>
+      <h1 class="hero-title">
+        Download Konten Instagram <br>
+        <span class="text-gradient">Resolusi Penuh & Audio MP3</span>
+      </h1>
+      <p class="hero-subtitle">
+        Unduh video Reels, foto feed, dan postingan carousel tanpa kompresi watermark. Ekstrak audio latar langsung ke format MP3.
+      </p>
+
+      <!-- Input Form -->
+      <div class="search-card">
+        <form id="igForm" class="search-form">
+          <div class="input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="igUrlInput" 
+              placeholder="Tempel tautan Instagram di sini... (contoh: https://www.instagram.com/reel/...)" 
+              autocomplete="off"
+              required
+            >
+            <button type="button" id="igPasteBtn" class="btn-ghost" title="Tempel dari Clipboard">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              <span>Paste</span>
+            </button>
+            <button type="button" id="igClearBtn" class="btn-ghost btn-clear" title="Hapus input" style="display: none;">
+              ✕
+            </button>
+          </div>
+          <button type="submit" id="igSubmitBtn" class="btn-primary">
+            <span class="btn-text">Ambil Media</span>
+            <div class="spinner" id="igBtnSpinner" style="display: none;"></div>
+          </button>
+        </form>
+      </div>
+
+      <!-- Quick Tips -->
+      <div class="quick-hints">
+        <span>Contoh format didukung:</span>
+        <code>instagram.com/reel/C8...</code>
+        <code>instagram.com/p/DB...</code>
+        <code>instagram.com/share/...</code>
+      </div>
+    </section>
+
+    <!-- Loading Skeleton -->
+    <section id="igLoadingSection" class="loading-section" style="display: none;">
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-thumb"></div>
+        <div class="skeleton-body">
+          <div class="skeleton skeleton-title"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-btn"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error Alert -->
+    <div id="igErrorAlert" class="alert-box alert-error" style="display: none;">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-content">
+        <div class="alert-title">Gagal Memproses Konten</div>
+        <div class="alert-message" id="igErrorMessage">Terjadi kesalahan saat memproses tautan.</div>
+      </div>
+      <button class="alert-close" onclick="this.parentElement.style.display='none'">✕</button>
+    </div>
+
+    <!-- Result Section -->
+    <section id="igResultSection" class="result-section" style="display: none;">
+      <div class="result-card">
+        
+        <!-- Post Header: Author & Shortcode -->
+        <div class="ig-card-header">
+          <div class="ig-author-badge">
+            <div class="ig-author-avatar">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="ig-author-name" id="igAuthorName">Instagram Post</div>
+              <div class="ig-post-type" id="igPostType">Postingan Publik</div>
+            </div>
+          </div>
+          <div class="ig-provider-tag" id="igProviderTag">Direct CDN</div>
+        </div>
+
+        <!-- Single Media Showcase (Reel or Single Photo) -->
+        <div id="igSingleShowcase" class="ig-showcase-container">
+          <div class="ig-media-wrapper" id="igMediaPreviewWrapper">
+            <!-- Dynamically injected: <video controls> or <img> -->
+          </div>
+          
+          <div class="ig-details-pane">
+            <div class="ig-caption-box" id="igCaptionBox" style="display: none;">
+              <div class="ig-caption-label">Caption:</div>
+              <p class="ig-caption-text" id="igCaptionText"></p>
+            </div>
+
+            <!-- Action Buttons for Single Media -->
+            <div class="ig-actions-stack">
+              <a href="#" id="igMainDownloadBtn" class="btn-action btn-ig-download" download>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span id="igMainDownloadText">Unduh Video HD (MP4)</span>
+              </a>
+
+              <a href="#" id="igAudioDownloadBtn" class="btn-action btn-ig-audio" download style="display: none;">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18V5l12-2v13"/>
+                  <circle cx="6" cy="18" r="3"/>
+                  <circle cx="18" cy="16" r="3"/>
+                </svg>
+                <span>Unduh Audio / MP3 (192kbps)</span>
+              </a>
+
+              <button type="button" id="igCopyLinkBtn" class="btn-action btn-ig-copy">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </svg>
+                <span>Salin Tautan Media</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel / Multi-Slide Showcase -->
+        <div id="igCarouselShowcase" class="ig-carousel-container" style="display: none;">
+          <div class="ig-carousel-header">
+            <h3>Daftar Item Carousel (<span id="igCarouselCount">0</span>)</h3>
+            <p>Pilih item di bawah untuk mengunduh slide individual.</p>
+          </div>
+          <div class="ig-gallery-grid" id="igGalleryGrid">
+            <!-- Injected dynamically: cards per slide -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Factual Feature Highlights -->
+    <section class="features-section">
+      <div class="feature-card">
+        <div class="feature-icon">🎥</div>
+        <h3 class="feature-title">Reels & Video Asli</h3>
+        <p class="feature-desc">Mengambil tautan stream MP4 resolusi asli dari CDN tanpa re-encoding atau watermark tambahan.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📑</div>
+        <h3 class="feature-title">Dukungan Carousel Penuh</h3>
+        <p class="feature-desc">Mendeteksi otomatis semua slide foto dan video dalam satu postingan carousel dengan tombol unduh terpisah.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎵</div>
+        <h3 class="feature-title">Ekstraksi Musik / Audio MP3</h3>
+        <p class="feature-desc">Dilengkapi konverter FFmpeg di server untuk langsung mengonversi audio Reels ke MP3 192kbps secara instan.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Proxy Stream Langsung</h3>
+        <p class="feature-desc">Mengatasi batasan CORS dan token kedaluwarsa CDN Instagram, memaksa dialog download file otomatis muncul.</p>
+      </div>
+    </section>
+
+    <!-- Operational Specs -->
+    <section class="faq-section">
+      <h2 class="section-heading">Spesifikasi Teknis & Cara Pakai</h2>
+      <div class="faq-grid">
+        <div class="faq-card">
+          <h4>Format apa saja yang bisa diunduh?</h4>
+          <p>Semua format publik Instagram: Reels, video feed, foto resolusi tinggi, postingan multi-slide (carousel), dan audio MP3.</p>
+        </div>
+        <div class="faq-card">
+          <h4>Kenapa beberapa postingan gagal diambil?</h4>
+          <p>Postingan dari akun privat (private account) atau konten yang dibatasi usia/region membutuhkan sesi akun untuk diakses.</p>
+        </div>
+        <div class="faq-card">
+          <h4>Bagaimana cara kerja ekstraksi audio?</h4>
+          <p>Server mengambil stream video dari CDN lalu melakukan demuxing audio via FFmpeg tanpa kompresi berlebih, menghasilkan file MP3 siap putar.</p>
+        </div>
+        <div class="faq-card">
+          <h4>Apakah perlu instal aplikasi tambahan?</h4>
+          <p>Tidak. Berjalan langsung di peramban web modern (Chrome, Edge, Safari, Firefox) baik di desktop maupun ponsel Android/iOS.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="copyright">
+        © 2026 <strong>InstaDownloader</strong> · Media Extraction & Streaming Engine.
+      </p>
+      <div class="footer-links">
+        <a href="/api/health" target="_blank">Status API</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="igToast" class="toast-notification"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
